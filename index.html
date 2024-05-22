@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all .2s;
+        }
+        h1{
+            text-align: center;
+            font-size: 3rem;
+        }
+        #outer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 .4rem;
+            margin: 3rem auto;
+        }
+        #outer img{
+            height: 100%;
+            width: 30%;
+        }
+        .border-black{
+            height: 2rem;
+            width: 6rem;
+            border: 2px solid black;
+            margin: auto;
+            border-radius: 3rem;
+            position: relative;
+        }
+        
+        .circle{
+            width: 40%;
+            height: 100%;
+            border: 2px solid rgb(8, 1, 1);
+            border-radius: 3rem;
+            position: absolute;
+            background-color: black;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+        .circle-right{
+            border: 2px solid white;
+            background-color:white;
+        }
+        .left-to-right{
+            position: absolute;
+            right: 2px;
+
+        }
+        .right-to-left{
+            position: absolute;
+            left: 2px;
+        }
+        .dark{
+            color: white;
+            background-color: black;
+        }
+        .white{
+            color: black;
+            background-color: white;
+        }
+        .border-white{
+            height: 2rem;
+            width: 6rem;
+            border: 2px solid rgb(255, 255, 255);
+            margin: auto;
+            border-radius: 3rem;
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="border-black" id="outer">
+        <img src="sun.svg" alt="">
+        
+        <div class="circle " id="inner" onclick="move()">
+           
+
+        </div>
+        <img src="star.svg" alt="">
+
+    </div>
+    <h1>Click on the Toggle Button</h1>
+
+    <script>
+        let whiteMode=true;
+        function move(){
+            let inner=document.getElementById("inner");
+            let body=document.body;
+            let outer=document.getElementById("outer");
+            if (whiteMode) {
+        inner.classList.remove("right-to-left");
+        inner.classList.add("left-to-right");
+        body.classList.remove("white");
+        body.classList.add("dark");
+        outer.classList.remove("border-black");
+        outer.classList.add("border-white")
+        inner.classList.add("circle-right")
+    } else {
+        inner.classList.remove("left-to-right");
+        inner.classList.add("right-to-left");
+        body.classList.remove("dark");
+        body.classList.add("white");
+        // outer.classList.add("border");
+        outer.classList.remove("border-white");
+        outer.classList.add("border-black")
+        inner.classList.remove("circle-right")
+
+    }
+            whiteMode=!whiteMode;
+            
+            
+            
+        }
+
+    </script>
+</body>
+</html>
